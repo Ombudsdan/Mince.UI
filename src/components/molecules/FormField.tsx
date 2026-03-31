@@ -86,7 +86,7 @@ export default function FormField({
     }
 
     if (full && type === "email" && trimmed !== "") {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^@\s]{1,64}@[^@\s]{1,255}\.[^@\s]{1,63}$/;
       if (!emailRegex.test(trimmed)) {
         setError(id, `${label} must be a valid email address`);
         return false;
